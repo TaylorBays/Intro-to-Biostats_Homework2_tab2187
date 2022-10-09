@@ -1,11 +1,18 @@
----
+--
+name: "Taylor Bays"
 title: "Homework 2"
-output: html_document
+output: pdf_document
 date: "2022-10-09"
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+```
+
+##Problem 1
+
+```{r}
+pnorm(98.7, mean = 98, sd= 0.62, lower.tail = FALSE)
 ```
 
 ##Problem 4 (a)
