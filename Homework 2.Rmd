@@ -1,0 +1,69 @@
+---
+title: "Homework 2"
+output: html_document
+date: "2022-10-09"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+##Problem 4 (a)
+```{r}
+gpigs_data=
+  read.table("gpigs.txt", header = TRUE)
+gpigs_data= gpigs_data [-1,]
+hist(gpigs_data)
+sd(gpigs_data)
+```
+##Problem 4 (b)
+```{r}
+gpigs_data=
+  read.table("gpigs.txt", header = TRUE)
+gpigs_data= gpigs_data [-1,]
+xbar= mean(gpigs_data)
+bs_samps = vector("list", 1000)
+set.seed(54321)
+for(j in 1:1000) {
+bs_samps[[j]]= sample(gpigs_data, size = length(72), replace = T)
+}
+
+bs_reps = unlist(lapply(bs_samps, mean))
+
+hist(bs_reps)
+qqnorm(bs_reps)
+qqline(bs_reps)
+sd(bs_reps)
+sd(bs_reps)/sqrt(72)
+
+```
+
+##Problem 4 (d)
+```{r}
+gpigs20_data=
+  read.table("gpigs20.txt", header = TRUE)
+gpigs20_data = gpigs20_data [-1,]
+hist(gpigs20_data)
+```
+
+```{r}
+gpigs20_data=
+  read.table("gpigs20.txt", header = TRUE)
+gpigs20_data= gpigs20_data [-1,]
+xbar= mean(gpigs20_data)
+bs_samps = vector("list", 1000)
+set.seed(12345)
+for(j in 1:1000) {
+bs_samps[[j]]= sample(gpigs20_data, size = length(20), replace = T)
+}
+
+bs_reps2 = unlist(lapply(bs_samps, mean))
+
+hist(bs_reps2)
+qqnorm(bs_reps2)
+qqline(bs_reps2)
+sd(bs_reps2)
+sd(bs_reps2)/sqrt(20)
+```
+
+
